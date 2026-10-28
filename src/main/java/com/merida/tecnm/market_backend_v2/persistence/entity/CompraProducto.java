@@ -72,4 +72,5 @@ public class CompraProducto {
     public void setProducto(Producto producto) {
         this.producto = producto;
     }
+
 }
