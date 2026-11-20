@@ -1,11 +1,20 @@
 package com.merida.tecnm.market_backend_v2.domain;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
+
 public class PurchaseItem {
 
+    @JsonAlias({"idProducto", "id"})
     private int productId;
+
+    @JsonAlias({"cantidad"})
     private int quantity;
+
+    @JsonAlias({"total"})
     private double total;
-    private boolean active;
+
+    @JsonAlias({"estado"})
+    private boolean active = true;
 
     public int getProductId() {
         return productId;

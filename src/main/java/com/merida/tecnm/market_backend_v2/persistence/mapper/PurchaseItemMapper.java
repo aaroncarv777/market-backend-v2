@@ -1,4 +1,5 @@
 package com.merida.tecnm.market_backend_v2.persistence.mapper;
+
 import com.merida.tecnm.market_backend_v2.domain.PurchaseItem;
 import com.merida.tecnm.market_backend_v2.persistence.entity.CompraProducto;
 import org.mapstruct.InheritInverseConfiguration;
@@ -12,16 +13,16 @@ public interface PurchaseItemMapper {
     @Mappings({
             @Mapping(source = "id.idProducto", target = "productId"),
             @Mapping(source = "cantidad", target = "quantity"),
-            @Mapping(source = "estado", target = "active"),
+            @Mapping(source = "total", target = "total"),
+            @Mapping(source = "estado", target = "active")
     })
-    PurchaseItem toPurchaseItem (CompraProducto compra);
+    PurchaseItem toPurchaseItem(CompraProducto compra);
 
     @InheritInverseConfiguration
     @Mappings({
-            @Mapping(target = "id.idCompra", ignore = true),
             @Mapping(target = "compra", ignore = true),
             @Mapping(target = "producto", ignore = true),
-
+            @Mapping(target = "id.idCompra", ignore = true)
     })
     CompraProducto toCompraProducto(PurchaseItem item);
 }

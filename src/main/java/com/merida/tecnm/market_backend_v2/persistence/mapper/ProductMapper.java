@@ -1,5 +1,5 @@
 package com.merida.tecnm.market_backend_v2.persistence.mapper;
-import com.merida.tecnm.market_backend_v2.domain.Category;
+
 import com.merida.tecnm.market_backend_v2.domain.Product;
 import com.merida.tecnm.market_backend_v2.persistence.entity.Producto;
 import org.mapstruct.InheritInverseConfiguration;
@@ -25,6 +25,9 @@ public interface ProductMapper {
     List<Product> toProducts(List<Producto> productos);
 
     @InheritInverseConfiguration
-    @Mapping(target = "codigoBarras", ignore = true)
+    @Mappings({
+            @Mapping(target = "codigoBarras", ignore = true),
+            @Mapping(target = "compraProductos", ignore = true)
+    })
     Producto toProducto(Product product);
 }

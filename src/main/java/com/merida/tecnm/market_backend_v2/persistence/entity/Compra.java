@@ -1,45 +1,36 @@
 package com.merida.tecnm.market_backend_v2.persistence.entity;
 
 import jakarta.persistence.*;
-import java.util.*;
-
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
-@Table (name="compras")
-
+@Table(name = "compras")
 public class Compra {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name = "id compra")
+    @Column(name = "id_compra")
     private Integer idCompra;
 
-    @Column (name = "id cliente")
+    @Column(name = "id_cliente")
     private String idcliente;
-
 
     private LocalDateTime fecha;
 
-    @Column (name = "medio pago")
+    @Column(name = "medio_pago")
     private String medioPago;
 
-
     private String comentario;
-    private String estado;
 
-    //relacion con cliente
-    //Mucho compras para un cliente
+    private String estado;
 
     @ManyToOne
     @JoinColumn(name = "id_cliente", insertable = false, updatable = false)
     private Cliente cliente;
 
-
-    //Relacion con CompraProducto
-    @OneToMany(mappedBy = "compra", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "compra", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<CompraProducto> productos;
-
 
     public Integer getIdCompra() {
         return idCompra;

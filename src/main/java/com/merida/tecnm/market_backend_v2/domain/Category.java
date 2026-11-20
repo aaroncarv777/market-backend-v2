@@ -1,9 +1,16 @@
 package com.merida.tecnm.market_backend_v2.domain;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
+
 public class Category {
 
+    @JsonAlias({"idCategoria", "id"})
     private Integer categoryId;
+
+    @JsonAlias({"descripcion", "nombre", "description"})
     private String category;
+
+    @JsonAlias({"estado"})
     private boolean active;
 
     public Integer getCategoryId() {
