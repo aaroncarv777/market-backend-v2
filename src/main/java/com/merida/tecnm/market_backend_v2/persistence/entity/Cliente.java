@@ -18,6 +18,8 @@ public class Cliente {
     @Column(name = "correo_electronico")
     private String correoElectronico;
 
+    private String password;
+
     @OneToMany(mappedBy = "cliente")
     private List<Compra> compras;
 
@@ -67,6 +69,14 @@ public class Cliente {
 
     public void setCorreoElectronico(String correoElectronico) {
         this.correoElectronico = correoElectronico;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public List<Compra> getCompras() {

@@ -22,6 +22,9 @@ public class Client {
     @JsonAlias({"correoElectronico", "correo"})
     private String email;
 
+    @JsonAlias({"contrasena", "clave"})
+    private String password;
+
     public String getClientId() {
         return clientId;
     }
@@ -68,5 +71,13 @@ public class Client {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
